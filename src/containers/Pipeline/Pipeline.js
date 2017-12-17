@@ -16,11 +16,11 @@ class Pipeline extends Component{
                 return response.json();
             })
             .then(response => {
-                let cards = response.map((card) => {
+                let cards = response.map((card, index) => {
                     return (
                         <article key={card.id} className="card">
                             <header className="header">{card.name}</header>
-                            <div className="detail">1/2</div>
+                            <div className="detail">{index+1}/{response.length}</div>
                         </article>
                     )
                 });

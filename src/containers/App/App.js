@@ -17,8 +17,4 @@ class App extends Component{
     }
 }
 
-// const Board = ({match}) => (
-//     <div>{match.params.boardId}</div>
-// );
-
 export default App;

@@ -1,0 +1,9 @@
+.sidebar{
+    width: 190px;
+    position: fixed;
+    z-index: 1;
+    left: 10px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+}

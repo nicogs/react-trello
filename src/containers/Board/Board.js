@@ -25,19 +25,21 @@ class Board extends Component{
             });
     }
 
-    componentWillReceiveProps(){
-        fetch('https://api.trello.com/1/boards/'+ this.props.match.params.boardId +'?fields=id,name&lists=open&list_fields=id,name&key=e327c3e08523d8b0c0efca2189a7b372&token=fbb3cb59c7c63472fc502a0b65fb79b99e8e5fc1aef520492ccbd9308f56b147')
-            .then(response => {
-                return response.json();
-            })
-            .then(response =>{
-                let pipelines = response.lists.map((pipeline) => {
-                    return(
-                        <Pipeline key={pipeline.id} pipeline={pipeline} tasks={[{id:1,name:'test'}]}></Pipeline>
-                    )
+    componentWillReceiveProps(nextProps){
+        if (nextProps.match.params.boardId !== this.props.match.params.boardId){
+            fetch('https://api.trello.com/1/boards/'+ this.props.match.params.boardId +'?fields=id,name&lists=open&list_fields=id,name&key=e327c3e08523d8b0c0efca2189a7b372&token=fbb3cb59c7c63472fc502a0b65fb79b99e8e5fc1aef520492ccbd9308f56b147')
+                .then(response => {
+                    return response.json();
+                })
+                .then(response =>{
+                    let pipelines = response.lists.map((pipeline) => {
+                        return(
+                            <Pipeline key={pipeline.id} pipeline={pipeline} tasks={[{id:1,name:'test'}]}></Pipeline>
+                        )
+                    });
+                    this.setState({pipelines:pipelines});
                 });
-                this.setState({pipelines:pipelines});
-            });
+        }
     }
 
 
