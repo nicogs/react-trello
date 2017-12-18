@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './Pipeline.css'
+import Card from '../Card/Card';
 
 class Pipeline extends Component{
 
@@ -72,10 +73,7 @@ class Pipeline extends Component{
                 <header>{this.props.pipeline.name}</header>
                 {this.state.cards.map((card, index) => {
                     return (
-                        <article key={card.id} className="card">
-                            <header className="header">{card.name}</header>
-                            <div className="detail">{index+1}/{this.state.cards.length}</div>
-                        </article>
+                        <Card id={card.id} name={card.name} index={index+1} total={this.state.cards.length} />
                     )
                 })}
                 <input type="text" placeholder="Add a card..." onChange={this.change}

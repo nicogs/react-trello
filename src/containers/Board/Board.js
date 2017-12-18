@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Pipeline from '../Pipeline/Pipeline';
 
+
 class Board extends Component{
 
     constructor(props){
