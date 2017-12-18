@@ -45,7 +45,7 @@ class Board extends Component{
 
     render(){
       return (
-          <div>
+          <div style={{marginLeft: '198px'}}>
               {this.state.pipelines}
           </div>
       )
